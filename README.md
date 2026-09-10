@@ -1,4 +1,3 @@
-````markdown
 # Secure Login System with Attack Prevention
 
 A Flask-based secure authentication system developed as part of the IncodeVision Cyber Security Internship – Task 03.
@@ -36,6 +35,7 @@ The system tracks failed login attempts for each user.
 After 5 consecutive failed login attempts, the account is temporarily locked for 5 minutes.
 
 During the lockout period:
+
 - Login attempts are blocked
 - Correct credentials cannot bypass the temporary lockout
 - The user can log in again after the lockout period expires
@@ -67,65 +67,13 @@ Secure-Login-System-with-Attack-Prevention/
     ├── register.html
     └── dashboard.html
 
-## Installation
-
-### Clone the Repository
-
-```bash
-git clone https://github.com/thecybervivek/Secure-Login-System-with-Attack-Prevention.git
-````
-
-### Navigate to the Project
-
-```bash
-cd Secure-Login-System-with-Attack-Prevention
-```
-
-### Create Virtual Environment
-
-```bash
-py -3.12 -m venv venv
-```
-
-### Activate Virtual Environment
-
-Windows PowerShell:
-
-```powershell
-.\venv\Scripts\Activate.ps1
-```
-
-### Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### Run the Application
-
-```bash
-python app.py
-```
-
-Open the application in your browser:
-
-[http://127.0.0.1:5000](http://127.0.0.1:5000)
-
 ## Security Implementation
 
 ### Password Hashing
 
 Passwords are securely hashed before being stored in the database using Werkzeug.
 
-```python
-generate_password_hash(password)
-```
-
-Passwords are verified using:
-
-```python
-check_password_hash(password_hash, password)
-```
+The application uses password hashing instead of storing passwords in plaintext.
 
 ### SQL Injection Protection
 
@@ -157,23 +105,15 @@ The following scenarios were tested:
 
 The application is deployed on Render using Gunicorn.
 
-Build Command:
+Build Command: pip install -r requirements.txt
 
-```bash
-pip install -r requirements.txt
-```
-
-Start Command:
-
-```bash
-gunicorn app:app
-```
+Start Command: gunicorn app:app
 
 ## Internship Task
 
 Internship: Cyber Security Intern – IncodeVision
 
-Task: Secure Login System with Attack Prevention
+Task 03: Secure Login System with Attack Prevention
 
 The project covers secure authentication, password hashing, login attempt limits, temporary account lockout, and brute-force attack prevention.
 
@@ -188,6 +128,3 @@ Cyber Security Student & Intern
 This project was developed for educational and internship purposes to demonstrate basic web authentication security and brute-force attack prevention.
 
 Do not use the demo application with real or sensitive passwords.
-
-```
-```
