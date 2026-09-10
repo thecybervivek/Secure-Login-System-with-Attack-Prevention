@@ -1,4 +1,4 @@
-# Task 03 — Secure Login System with Attack Prevention
+# Secure Login System with Attack Prevention
 
 IncodeVision Cyber Security Internship task implementation.
 
