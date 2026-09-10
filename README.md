@@ -1,76 +1,58 @@
+````markdown
 # Secure Login System with Attack Prevention
 
-A Flask-based secure authentication system developed as part of the **IncodeVision Cyber Security Internship – Task 03**.
+A Flask-based secure authentication system developed as part of the IncodeVision Cyber Security Internship – Task 03.
 
-The project demonstrates secure user registration and login with password hashing, session-based authentication, brute-force protection, and temporary account lockout.
+## Live Demo
 
----
+Live Application: https://secure-login-system-with-attack.onrender.com
 
-## 🚀 Live Demo
+Note: The application is hosted on Render's free instance, so the first request may take some time after inactivity.
 
-🔗 **Live Application:**  
-https://secure-login-system-with-attack.onrender.com
+## Project Objective
 
-> **Note:** The application is hosted on Render's free instance. After a period of inactivity, the first request may take a few seconds to respond.
+The objective of this project is to develop a secure registration and login system that protects user credentials and prevents common authentication attacks such as brute-force attacks.
 
----
-
-## 📌 Project Objective
-
-To develop a secure registration and login system that protects user credentials and prevents common authentication attacks such as brute-force password attempts.
-
----
-
-## 🔐 Security Features
+## Features
 
 - Secure user registration
+- Secure login authentication
 - Password hashing using Werkzeug
-- Passwords are never stored in plaintext
+- Passwords are not stored in plaintext
 - Minimum password length validation
 - Session-based authentication
 - Protected dashboard
 - Failed login attempt tracking
 - Brute-force attack prevention
-- Temporary account lockout after multiple failed attempts
+- Temporary account lockout
 - Parameterized SQL queries
 - Secure logout and session clearing
-- SQLite database for user data
+- SQLite database
 
----
-
-## 🛡️ Brute-Force Protection
+## Brute-Force Protection
 
 The system tracks failed login attempts for each user.
 
-### Lockout Policy
+After 5 consecutive failed login attempts, the account is temporarily locked for 5 minutes.
 
-- Maximum failed attempts: **5**
-- After 5 consecutive failed attempts:
-  - Account is temporarily locked
-  - Lockout duration: **5 minutes**
-- Correct credentials cannot be used during the lockout period
-- After the lockout expires, the user can attempt to log in again
+During the lockout period:
+- Login attempts are blocked
+- Correct credentials cannot bypass the temporary lockout
+- The user can log in again after the lockout period expires
 
-This mechanism helps reduce the risk of automated brute-force attacks.
+## Technologies Used
 
----
+- Python
+- Flask
+- SQLite
+- Werkzeug
+- HTML5
+- CSS3
+- Jinja2
+- Gunicorn
 
-## 🧰 Technologies Used
+## Project Structure
 
-- **Python 3**
-- **Flask**
-- **SQLite**
-- **Werkzeug**
-- **HTML5**
-- **CSS3**
-- **Jinja2**
-- **Gunicorn**
-
----
-
-## 📂 Project Structure
-
-```text
 Secure-Login-System-with-Attack-Prevention/
 │
 ├── app.py
@@ -84,3 +66,128 @@ Secure-Login-System-with-Attack-Prevention/
     ├── login.html
     ├── register.html
     └── dashboard.html
+
+## Installation
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/thecybervivek/Secure-Login-System-with-Attack-Prevention.git
+````
+
+### Navigate to the Project
+
+```bash
+cd Secure-Login-System-with-Attack-Prevention
+```
+
+### Create Virtual Environment
+
+```bash
+py -3.12 -m venv venv
+```
+
+### Activate Virtual Environment
+
+Windows PowerShell:
+
+```powershell
+.\venv\Scripts\Activate.ps1
+```
+
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Run the Application
+
+```bash
+python app.py
+```
+
+Open the application in your browser:
+
+[http://127.0.0.1:5000](http://127.0.0.1:5000)
+
+## Security Implementation
+
+### Password Hashing
+
+Passwords are securely hashed before being stored in the database using Werkzeug.
+
+```python
+generate_password_hash(password)
+```
+
+Passwords are verified using:
+
+```python
+check_password_hash(password_hash, password)
+```
+
+### SQL Injection Protection
+
+The application uses parameterized SQL queries instead of directly inserting user input into SQL statements.
+
+### Session Authentication
+
+Flask sessions are used to maintain authenticated user sessions and protect restricted routes.
+
+### Account Lockout
+
+Failed login attempts are tracked and the account is temporarily locked after repeated failed attempts.
+
+## Testing
+
+The following scenarios were tested:
+
+1. User registration with a new account
+2. Successful login with valid credentials
+3. Failed login with incorrect credentials
+4. Five consecutive failed login attempts
+5. Temporary account lockout
+6. Blocking login during the lockout period
+7. Successful login after the lockout period
+8. Redirecting unauthenticated users from the protected dashboard
+9. Logout and session clearing
+
+## Deployment
+
+The application is deployed on Render using Gunicorn.
+
+Build Command:
+
+```bash
+pip install -r requirements.txt
+```
+
+Start Command:
+
+```bash
+gunicorn app:app
+```
+
+## Internship Task
+
+Internship: Cyber Security Intern – IncodeVision
+
+Task: Secure Login System with Attack Prevention
+
+The project covers secure authentication, password hashing, login attempt limits, temporary account lockout, and brute-force attack prevention.
+
+## Author
+
+Vivek Sharma
+
+Cyber Security Student & Intern
+
+## Disclaimer
+
+This project was developed for educational and internship purposes to demonstrate basic web authentication security and brute-force attack prevention.
+
+Do not use the demo application with real or sensitive passwords.
+
+```
+```
