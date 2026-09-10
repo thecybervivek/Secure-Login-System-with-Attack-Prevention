@@ -51,22 +51,6 @@ During the lockout period:
 - Jinja2
 - Gunicorn
 
-## Project Structure
-
-Secure-Login-System-with-Attack-Prevention/
-│
-├── app.py
-├── requirements.txt
-├── README.md
-├── .gitignore
-│
-└── templates/
-    ├── base.html
-    ├── home.html
-    ├── login.html
-    ├── register.html
-    └── dashboard.html
-
 ## Security Implementation
 
 ### Password Hashing
@@ -113,7 +97,7 @@ Start Command: gunicorn app:app
 
 Internship: Cyber Security Intern – IncodeVision
 
-Task 03: Secure Login System with Attack Prevention
+Task: Secure Login System with Attack Prevention
 
 The project covers secure authentication, password hashing, login attempt limits, temporary account lockout, and brute-force attack prevention.
 
